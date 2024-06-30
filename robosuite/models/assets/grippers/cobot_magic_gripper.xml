@@ -1,0 +1,55 @@
+<mujoco model="tracer">
+    <compiler angle="radian" meshdir="meshes/" />
+    <asset>
+        <mesh name="link7" file="meshes/cobot_magic_gripper/link7.STL" />
+        <mesh name="link8" file="meshes/cobot_magic_gripper/link8.STL" />
+    </asset>
+
+    <worldbody>
+        <body name="eef" pos="0.073574 0 0">
+            <site name="ft_frame" pos="0 0 0" size="0.01 0.01 0.01" rgba="1 0 0 1" type="sphere" group="1" />
+            <!-- This site was added for visualization. -->
+            <site name="grip_site" pos="0 0.024629 0" size="0.01 0.01 0.01" rgba="1 0 0 0.5" type="sphere" group="1"/>
+            <!-- This site was added for visualization. -->
+            <site name="grip_site_cylinder" pos="0 0.024629 0" size="0.005 10" rgba="0 1 0 0.3" type="cylinder" group="1"/>
+            
+            <body name="link_left" pos="0 0.024629 0">
+                <inertial pos="-0.000327643 -0.00482005 -0.00167541"
+                    quat="0.5 0.5 0.5 0.5" mass="0.0484017"
+                    diaginertia="2e-05 2e-05 1e-05" />
+                <joint name="joint_left" pos="0 0 0" axis="0 1 0"
+                    type="slide"
+                    limited="true" range="0 0.0475" damping="100"
+                    frictionloss="30" />
+                <geom type="mesh" group="1" condim="4" solimp="2 1 0.01"
+                    solref="0.01 1"
+                    friction="2 0.02 0.001" density="1.1"
+                    rgba="0.898039 0.917647 0.929412 1" mesh="link7"
+                    name="link_left_geom" />
+            </body>
+            <body name="link_right" pos="0 -0.024629 0">
+                <inertial pos="-0.000327644 0.00482005 0.000752973"
+                    quat="0.5 0.5 0.5 0.5" mass="0.0484017"
+                    diaginertia="2e-05 2e-05 1e-05" />
+                <joint name="joint_right" pos="0 0 0" axis="0 -1 0"
+                    type="slide"
+                    limited="true" range="0 0.0475" damping="100"
+                    frictionloss="30" />
+                <geom type="mesh" group="1" condim="4" solimp="2 1 0.01"
+                    solref="0.01 1"
+                    friction="2 0.02 0.001" density="1.1"
+                    rgba="0.898039 0.917647 0.929412 1" mesh="link8"
+                    name="link_right_geom" />
+            </body>
+        </body>
+    </worldbody>
+    <sensor>
+        <force name="force_ee" site="ft_frame"/>
+        <torque name="torque_ee" site="ft_frame"/>
+    </sensor>
+
+    <actuator>
+        <position name="joint_left" ctrllimited="true" kp="10000" ctrlrange="0 0.0475" forcerange="-100 100" joint="joint_left" />
+        <position name="joint_right" ctrllimited="true" kp="10000" ctrlrange="0 0.0475" forcerange="-100 100" joint="joint_right" />
+    </actuator>
+</mujoco>

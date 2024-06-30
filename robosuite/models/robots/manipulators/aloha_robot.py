@@ -12,6 +12,8 @@ class Aloha(ManipulatorModel):
         idn (int or str): Number or some other unique identification string for this robot instance
     """
 
+    arms = ["right", "left"]
+
     def __init__(self, idn=0):
         super().__init__(xml_path_completion("robots/aloha/robot.xml"), idn=idn)
 
