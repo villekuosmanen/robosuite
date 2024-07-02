@@ -7,11 +7,11 @@
     <worldbody>
         <body name="mobile_base" pos="0 0 0">
             <inertial pos="0 0 0" mass="0.004" diaginertia="0.0001 0.0006 0.0005" />
-            <body name="support" pos="0 0 0">
+            <body name="support" pos="0 -0.2 0">
                 <!-- add robot here -->
                 <site name="center" type="sphere" pos="0 0 0" size="0.01" group="1" rgba="0 0 0 0"/>
             </body>
-            <body name="wheeled_base" pos="0 0 0">
+            <body name="wheeled_base" pos="0 -0.2 0">
                 <inertial pos="0 0 0" mass="0.004" diaginertia="0.0001 0.0006 0.0005" />
                 <geom pos="0 0 0" euler="0 0 0" type="mesh" group="1" density="7.85" mass="10000"
                 rgba="0.79216 0.81961 0.93333 1" mesh="base_link_aloha" />
@@ -22,7 +22,7 @@
         </body>
     </worldbody>
     <actuator>
-        <velocity ctrllimited="true" ctrlrange="-1.00 1.00" joint="joint_mobile_forward" kv="2000" name="actuator_mobile_forward" forcelimited="true" forcerange="-8800 8800"/>
+        <velocity ctrllimited="true" ctrlrange="-1.00 1.00" joint="joint_mobile_forward" kv="2000" name="actuator_mobile_forward" forcelimited="true" forcerange="-16000 16000"/>
 		<velocity ctrllimited="true" ctrlrange="-1.00 1.00" joint="joint_mobile_side" kv="2000" name="actuator_mobile_side" forcelimited="true" forcerange="-2200 2200"/>
 		<velocity ctrllimited="true" ctrlrange="-1.50 1.50" joint="joint_mobile_yaw" kv="1500" name="actuator_mobile_yaw" forcelimited="true" forcerange="-600 600"/>
 	</actuator>
