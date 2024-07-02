@@ -110,6 +110,7 @@ mjkey.txt
 
 *.jpg
 .idea
+.vscode
 
 .pytest_cache/
 
