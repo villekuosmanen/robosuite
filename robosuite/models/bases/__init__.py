@@ -8,6 +8,7 @@ from .rethink_minimal_mount import RethinkMinimalMount
 from .null_mount import NullMount
 
 from .omron_mobile_base import OmronMobileBase
+from .tracer_mobile_base import TracerMobileBase
 from .null_mobile_base import NullMobileBase
 from .no_actuation_base import NoActuationBase
 from .floating_legged_base import FloatingLeggedBase
@@ -22,6 +23,7 @@ BASE_MAPPING = {
     "AlohaMount": AlohaMount,
     "NullMount": NullMount,
     "OmronMobileBase": OmronMobileBase,
+    "TracerMobileBase": TracerMobileBase,
     "NullMobileBase": NullMobileBase,
     "NoActuationBase": NoActuationBase,
     "FloatingLeggedBase": FloatingLeggedBase,

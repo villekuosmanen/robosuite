@@ -9,6 +9,8 @@ ALL_ROBOTS = REGISTERED_ROBOTS.keys()
 
 # Robot class mappings -- must be maintained manually
 ROBOT_CLASS_MAPPING = {
+    "CobotMagic": WheeledRobot,
+    "Aloha": FixedBaseRobot,
     "Baxter": FixedBaseRobot,
     "IIWA": FixedBaseRobot,
     "Jaco": FixedBaseRobot,
